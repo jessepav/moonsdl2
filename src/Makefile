@@ -1,3 +1,13 @@
+# Before I go ahead and refactor this Makefile, let me record here the
+# command-line I used to successfully build moonsdl2.so:
+#
+# make LUAVER=5.1 \
+#   INCDIR='-I. -I /opt/SDL2/include/SDL2 -I /usr/local/include/luajit-2.1' \
+#   LIBS='-L /opt/SDL2/lib -Wl,-rpath=/opt/SDL2/lib -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer'
+#
+# Note particularly the use of "-Wl,-rpath=...", which is required to make the
+# dynamic linker use the libraries in /opt/SDL2/lib instead of the ones
+# installed by my package manager, which are not new enough to support moonsdl2.
 
 ifdef MINGW_PREFIX
 MINGW=1
